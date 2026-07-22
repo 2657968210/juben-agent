@@ -9,6 +9,7 @@ This MCP server exposes database-result driven tools for the creative-team workf
 3. run_balanced_script_chain
 4. get_generation_status
 5. get_final_shotlist
+6. run_template1_slot_prompt_chain
 
 ## Required DB fields
 
@@ -34,6 +35,8 @@ Server endpoint:
 http://127.0.0.1:3001/mcp
 http://127.0.0.1:3001/mcp-template1
 ```
+
+`/mcp-template1` 面向“儿童成长系列分镜槽位表”场景，输入 7 条来源提示词后，自动选出 4 条并生成适合下游图生视频的槽位提示词。
 
 ## MCP client config (HTTP)
 
@@ -101,6 +104,32 @@ For this project, the image-to-script flow follows the compressed 3-step path fr
 2. creative-scriptwriter: turn the extracted image information into a full shot-based script.
 3. creative-script-expert: do one lightweight logic and dialogue pass.
 
+## Template1 workflow
+
+Use this tool when you already have 7 条素材提示词，且识图结果会在上游模块生成。
+
+```json
+{
+  "templateName": "儿童成长系列",
+  "sourcePrompts": [
+    { "title": "素材1", "prompt": "..." },
+    { "title": "素材2", "prompt": "..." },
+    { "title": "素材3", "prompt": "..." },
+    { "title": "素材4", "prompt": "..." },
+    { "title": "素材5", "prompt": "..." },
+    { "title": "素材6", "prompt": "..." },
+    { "title": "素材7", "prompt": "..." }
+  ]
+}
+```
+
+The tool returns:
+
+- 模版推荐与理由
+- 分镜控制规则
+- 4 条匹配到槽位表的最终提示词
+- 未选中的素材列表
+
 ## Output artifacts
 
 Generated artifacts are written to:
@@ -108,3 +137,5 @@ Generated artifacts are written to:
 - output/jobs/<jobId>/shot-list-final.md
 - output/jobs/<jobId>/script-review.md
 - output/jobs/<jobId>/status.json
+- output/jobs/<jobId>/template1-slot-prompts.md
+- output/jobs/<jobId>/template1-slot-prompts.json
