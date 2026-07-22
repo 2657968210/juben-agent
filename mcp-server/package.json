@@ -5,7 +5,8 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "start:template1": "node src/template1-server.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"

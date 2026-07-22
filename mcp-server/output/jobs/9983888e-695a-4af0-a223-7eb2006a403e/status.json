@@ -1,0 +1,215 @@
+{
+  "jobId": "9983888e-695a-4af0-a223-7eb2006a403e",
+  "kind": "template1",
+  "profile": "template1-slot-prompts",
+  "status": "completed",
+  "startedAt": "2026-07-22T05:40:44.210Z",
+  "completedAt": "2026-07-22T05:40:44.212Z",
+  "template1Plan": {
+    "templateName": "儿童成长系列",
+    "templateReason": "素材呈现明显的成长、怀旧、陪伴与时间流动特征，适合用儿童成长系列的四段式情绪槽位来承载。",
+    "controlRules": "只输出动态增量，不写画面中已有的人或物；提示词固定按【动态控制】+【氛围渲染】+【运镜】+【固定后缀】组织。",
+    "fixedSuffix": "老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清",
+    "sourcePrompts": [
+      {
+        "index": 1,
+        "title": "素材1",
+        "promptText": "儿童；室内白天；阅读翻页；温暖怀旧；写实；开场建立；童年 阅读；翻页 窗帘摆动"
+      },
+      {
+        "index": 2,
+        "title": "素材2",
+        "promptText": "儿童与家人；操场傍晚；牵手散步；陪伴治愈；写实；陪伴互动；陪伴 亲子；步伐变化 手部摆动"
+      },
+      {
+        "index": 3,
+        "title": "素材3",
+        "promptText": "少年；校园白天；奔跑回头；成长；清透；成长转折；校园 成长；奔跑 回头"
+      },
+      {
+        "index": 4,
+        "title": "素材4",
+        "promptText": "青年；黄昏；回望停驻；回望收束；复古；收束回望；回望 告别；转头 呼吸感"
+      },
+      {
+        "index": 5,
+        "title": "素材5",
+        "promptText": "儿童；生日室内；吹蜡烛；温馨；暖调；未确定；生日；烛光闪动"
+      },
+      {
+        "index": 6,
+        "title": "素材6",
+        "promptText": "儿童；公园；奔跑；轻快；自然；成长转折；成长；跑动"
+      },
+      {
+        "index": 7,
+        "title": "素材7",
+        "promptText": "家庭；客厅夜晚；合影；温暖；写实；陪伴互动；家庭；表情变化"
+      }
+    ],
+    "selectedSlots": [
+      {
+        "slotNo": 1,
+        "title": "开场建立",
+        "targetDurationSec": 4,
+        "coreIntent": "建立温馨回忆和时间起点",
+        "shotSize": "远景/全景",
+        "visualFocus": "静态氛围被轻柔唤醒，整体从安静过渡到怀旧",
+        "sourceIndex": 1,
+        "sourceTitle": "素材1",
+        "sourcePrompt": "儿童；室内白天；阅读翻页；温暖怀旧；写实；开场建立；童年 阅读；翻页 窗帘摆动",
+        "matchScore": 4.5,
+        "matchReason": "命中关键词：童年",
+        "generatedPrompt": "镜头缓慢推进，静态氛围被轻柔唤醒，整体从安静过渡到怀旧，暖金色、柔光、轻微胶片感，怀旧感慢慢浮现，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "slotNo": 2,
+        "title": "成长转折",
+        "targetDurationSec": 5,
+        "coreIntent": "突出成长变化与时间推进",
+        "shotSize": "中景",
+        "visualFocus": "节奏由静转动，画面带出时间流动与成长感",
+        "sourceIndex": 3,
+        "sourceTitle": "素材3",
+        "sourcePrompt": "少年；校园白天；奔跑回头；成长；清透；成长转折；校园 成长；奔跑 回头",
+        "matchScore": 10,
+        "matchReason": "命中关键词：成长、校园、转折",
+        "generatedPrompt": "轻微横移后缓慢前推，节奏由静转动，画面带出时间流动与成长感，清透、明亮、岁月流动感，节奏由静到动，成长感逐步增强，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "slotNo": 3,
+        "title": "陪伴互动",
+        "targetDurationSec": 5,
+        "coreIntent": "表现陪伴、互动和情感靠近",
+        "shotSize": "中近景",
+        "visualFocus": "关系感逐渐升温，情绪更亲密柔和",
+        "sourceIndex": 2,
+        "sourceTitle": "素材2",
+        "sourcePrompt": "儿童与家人；操场傍晚；牵手散步；陪伴治愈；写实；陪伴互动；陪伴 亲子；步伐变化 手部摆动",
+        "matchScore": 12,
+        "matchReason": "命中关键词：家人、陪伴、互动",
+        "generatedPrompt": "稳定跟随并轻轻靠近，关系感逐渐升温，情绪更亲密柔和，治愈、亲密、柔和包裹感，情绪更靠近，氛围更柔和，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "slotNo": 4,
+        "title": "收束回望",
+        "targetDurationSec": 4,
+        "coreIntent": "完成情绪收尾和成长回望",
+        "shotSize": "近景/特写",
+        "visualFocus": "画面逐渐安静，留下回望与告别感",
+        "sourceIndex": 4,
+        "sourceTitle": "素材4",
+        "sourcePrompt": "青年；黄昏；回望停驻；回望收束；复古；收束回望；回望 告别；转头 呼吸感",
+        "matchScore": 6.5,
+        "matchReason": "命中关键词：回望、告别",
+        "generatedPrompt": "缓慢拉远并轻微停驻，画面逐渐安静，留下回望与告别感，夕阳、回望、留白、感怀，情绪渐渐收束，保留回望感，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      }
+    ],
+    "unselectedPrompts": [
+      {
+        "index": 5,
+        "title": "素材5",
+        "promptText": "儿童；生日室内；吹蜡烛；温馨；暖调；未确定；生日；烛光闪动"
+      },
+      {
+        "index": 6,
+        "title": "素材6",
+        "promptText": "儿童；公园；奔跑；轻快；自然；成长转折；成长；跑动"
+      },
+      {
+        "index": 7,
+        "title": "素材7",
+        "promptText": "家庭；客厅夜晚；合影；温暖；写实；陪伴互动；家庭；表情变化"
+      }
+    ]
+  },
+  "slotTableJson": {
+    "template": {
+      "templateName": "儿童成长系列",
+      "templateReason": "素材呈现明显的成长、怀旧、陪伴与时间流动特征，适合用儿童成长系列的四段式情绪槽位来承载。"
+    },
+    "controlRules": {
+      "strategy": "7选4槽位匹配，按情绪节奏组织镜头",
+      "promptFormula": "动态控制 + 氛围渲染 + 运镜 + 固定后缀",
+      "fixedSuffix": "老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清",
+      "constraints": [
+        "不直写画面里已有的人或物",
+        "只写动态增量",
+        "优先匹配儿童成长系列情绪线"
+      ]
+    },
+    "slotTable": [
+      {
+        "shotNo": 1,
+        "recommendedDurationSec": 4,
+        "slotCoreIntent": "建立温馨回忆和时间起点",
+        "shotSize": "远景/全景",
+        "visualContentFocus": "静态氛围被轻柔唤醒，整体从安静过渡到怀旧",
+        "imageSourceIndex": 1,
+        "imageSourceTitle": "素材1",
+        "matchReason": "命中关键词：童年",
+        "imageToVideoPrompt": "镜头缓慢推进，静态氛围被轻柔唤醒，整体从安静过渡到怀旧，暖金色、柔光、轻微胶片感，怀旧感慢慢浮现，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "shotNo": 2,
+        "recommendedDurationSec": 5,
+        "slotCoreIntent": "突出成长变化与时间推进",
+        "shotSize": "中景",
+        "visualContentFocus": "节奏由静转动，画面带出时间流动与成长感",
+        "imageSourceIndex": 3,
+        "imageSourceTitle": "素材3",
+        "matchReason": "命中关键词：成长、校园、转折",
+        "imageToVideoPrompt": "轻微横移后缓慢前推，节奏由静转动，画面带出时间流动与成长感，清透、明亮、岁月流动感，节奏由静到动，成长感逐步增强，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "shotNo": 3,
+        "recommendedDurationSec": 5,
+        "slotCoreIntent": "表现陪伴、互动和情感靠近",
+        "shotSize": "中近景",
+        "visualContentFocus": "关系感逐渐升温，情绪更亲密柔和",
+        "imageSourceIndex": 2,
+        "imageSourceTitle": "素材2",
+        "matchReason": "命中关键词：家人、陪伴、互动",
+        "imageToVideoPrompt": "稳定跟随并轻轻靠近，关系感逐渐升温，情绪更亲密柔和，治愈、亲密、柔和包裹感，情绪更靠近，氛围更柔和，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      },
+      {
+        "shotNo": 4,
+        "recommendedDurationSec": 4,
+        "slotCoreIntent": "完成情绪收尾和成长回望",
+        "shotSize": "近景/特写",
+        "visualContentFocus": "画面逐渐安静，留下回望与告别感",
+        "imageSourceIndex": 4,
+        "imageSourceTitle": "素材4",
+        "matchReason": "命中关键词：回望、告别",
+        "imageToVideoPrompt": "缓慢拉远并轻微停驻，画面逐渐安静，留下回望与告别感，夕阳、回望、留白、感怀，情绪渐渐收束，保留回望感，老照片动态修复，轻微的胶片闪烁，温暖柔和的夕阳光线，画面有轻微呼吸感，4k，超高清"
+      }
+    ],
+    "unselectedSources": [
+      {
+        "index": 5,
+        "title": "素材5",
+        "promptText": "儿童；生日室内；吹蜡烛；温馨；暖调；未确定；生日；烛光闪动"
+      },
+      {
+        "index": 6,
+        "title": "素材6",
+        "promptText": "儿童；公园；奔跑；轻快；自然；成长转折；成长；跑动"
+      },
+      {
+        "index": 7,
+        "title": "素材7",
+        "promptText": "家庭；客厅夜晚；合影；温暖；写实；陪伴互动；家庭；表情变化"
+      }
+    ],
+    "sourceSummary": {
+      "inputCount": 7,
+      "selectedCount": 4,
+      "unselectedCount": 3
+    }
+  },
+  "artifacts": {
+    "markdownPath": "D:\\IT技术部\\juben-agent\\mcp-server\\output\\jobs\\9983888e-695a-4af0-a223-7eb2006a403e\\template1-slot-prompts.md",
+    "jsonPath": "D:\\IT技术部\\juben-agent\\mcp-server\\output\\jobs\\9983888e-695a-4af0-a223-7eb2006a403e\\template1-slot-table.json",
+    "statusPath": "D:\\IT技术部\\juben-agent\\mcp-server\\output\\jobs\\9983888e-695a-4af0-a223-7eb2006a403e\\status.json"
+  }
+}

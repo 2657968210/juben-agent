@@ -87,6 +87,46 @@ function extractPromptText(sourcePrompt) {
   );
 }
 
+function ensureArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function joinNonEmpty(parts, separator = "，") {
+  return ensureArray(parts).map((item) => normalizeText(item)).filter(Boolean).join(separator);
+}
+
+function normalizeFromImageCards(imageCards) {
+  return ensureArray(imageCards)
+    .map((card, index) => {
+      if (!isPlainObject(card)) {
+        return undefined;
+      }
+
+      const sequence = Number(card.sequence ?? card.index ?? card.imageNo ?? index + 1);
+      const title = normalizeText(card.title ?? card.name ?? card.imageId ?? `素材${index + 1}`) || `素材${index + 1}`;
+      const promptText = joinNonEmpty([
+        card.person,
+        card.people,
+        card.scene,
+        card.action,
+        card.mood,
+        card.style,
+        card.slotAffinity,
+        joinNonEmpty(card.keywords, " "),
+        joinNonEmpty(card.movableElements, " ")
+      ], "；");
+
+      return {
+        index,
+        sequence: Number.isFinite(sequence) ? sequence : index + 1,
+        title,
+        promptText,
+        raw: card
+      };
+    })
+    .filter((item) => item && item.promptText);
+}
+
 function normalizeTemplate1Sources(sourcePrompts) {
   return Array.isArray(sourcePrompts)
     ? sourcePrompts.map((sourcePrompt, index) => {
@@ -103,6 +143,15 @@ function normalizeTemplate1Sources(sourcePrompts) {
         };
       }).filter((item) => item.promptText)
     : [];
+}
+
+function normalizeTemplate1Inputs(args) {
+  const fromSourcePrompts = normalizeTemplate1Sources(args?.sourcePrompts);
+  if (fromSourcePrompts.length > 0) {
+    return fromSourcePrompts;
+  }
+
+  return normalizeFromImageCards(args?.imageCards);
 }
 
 function countKeywordHits(text, keywords) {
@@ -177,7 +226,7 @@ function formatTemplate1Markdown(plan) {
 function createTemplate1Plan(args) {
   const templateName = normalizeText(args?.templateName) || "儿童成长系列";
   const fixedSuffix = normalizeText(args?.fixedSuffix) || TEMPLATE1_FIXED_SUFFIX;
-  const sourcePrompts = normalizeTemplate1Sources(args?.sourcePrompts);
+  const sourcePrompts = normalizeTemplate1Inputs(args);
 
   if (sourcePrompts.length < 4) {
     throw new Error("至少需要 4 条可用提示词，建议传入完整 7 条素材提示词");
@@ -217,7 +266,7 @@ function createTemplate1Plan(args) {
       coreIntent: entry.slot.coreIntent,
       shotSize: entry.slot.shotSize,
       visualFocus: entry.slot.visualFocus,
-      sourceIndex: best.sourcePrompt.index + 1,
+      sourceIndex: best.sourcePrompt.sequence ?? best.sourcePrompt.index + 1,
       sourceTitle: best.sourcePrompt.title,
       sourcePrompt: best.sourcePrompt.promptText,
       matchScore: Number(best.score.toFixed(1)),
@@ -229,7 +278,7 @@ function createTemplate1Plan(args) {
   selectedSlots.sort((left, right) => left.slotNo - right.slotNo);
 
   const unselectedPrompts = sourcePrompts.filter((item) => !selectedSourceIndexes.has(item.index)).map((item) => ({
-    index: item.index + 1,
+    index: item.sequence ?? item.index + 1,
     title: item.title,
     promptText: item.promptText
   }));
@@ -240,7 +289,7 @@ function createTemplate1Plan(args) {
     controlRules: "只输出动态增量，不写画面中已有的人或物；提示词固定按【动态控制】+【氛围渲染】+【运镜】+【固定后缀】组织。",
     fixedSuffix,
     sourcePrompts: sourcePrompts.map((item) => ({
-      index: item.index + 1,
+      index: item.sequence ?? item.index + 1,
       title: item.title,
       promptText: item.promptText
     })),
@@ -249,25 +298,62 @@ function createTemplate1Plan(args) {
   };
 }
 
-function saveTemplate1Artifacts(jobId, plan, baseDir) {
+function toTemplate1SlotTableJson(plan) {
+  return {
+    template: {
+      templateName: plan.templateName,
+      templateReason: plan.templateReason
+    },
+    controlRules: {
+      strategy: "7选4槽位匹配，按情绪节奏组织镜头",
+      promptFormula: "动态控制 + 氛围渲染 + 运镜 + 固定后缀",
+      fixedSuffix: plan.fixedSuffix,
+      constraints: [
+        "不直写画面里已有的人或物",
+        "只写动态增量",
+        "优先匹配儿童成长系列情绪线"
+      ]
+    },
+    slotTable: plan.selectedSlots.map((slot) => ({
+      shotNo: slot.slotNo,
+      recommendedDurationSec: slot.targetDurationSec,
+      slotCoreIntent: slot.coreIntent,
+      shotSize: slot.shotSize,
+      visualContentFocus: slot.visualFocus,
+      imageSourceIndex: slot.sourceIndex,
+      imageSourceTitle: slot.sourceTitle,
+      matchReason: slot.matchReason,
+      imageToVideoPrompt: slot.generatedPrompt
+    })),
+    unselectedSources: plan.unselectedPrompts,
+    sourceSummary: {
+      inputCount: plan.sourcePrompts.length,
+      selectedCount: plan.selectedSlots.length,
+      unselectedCount: plan.unselectedPrompts.length
+    }
+  };
+}
+
+function saveTemplate1Artifacts(jobId, plan, slotTableJson, baseDir) {
   const jobDir = path.join(baseDir, "output", "jobs", jobId);
   ensureDir(jobDir);
 
   const markdownPath = path.join(jobDir, "template1-slot-prompts.md");
-  const jsonPath = path.join(jobDir, "template1-slot-prompts.json");
+  const jsonPath = path.join(jobDir, "template1-slot-table.json");
   const statusPath = path.join(jobDir, "status.json");
 
   fs.writeFileSync(markdownPath, formatTemplate1Markdown(plan), "utf8");
-  fs.writeFileSync(jsonPath, JSON.stringify(plan, null, 2), "utf8");
+  fs.writeFileSync(jsonPath, JSON.stringify(slotTableJson, null, 2), "utf8");
 
   return { markdownPath, jsonPath, statusPath };
 }
 
 export function runTemplate1SlotPromptChain(args, baseDir) {
   const plan = createTemplate1Plan(args);
+  const slotTableJson = toTemplate1SlotTableJson(plan);
   const jobId = crypto.randomUUID();
   const startedAt = nowIso();
-  const artifacts = saveTemplate1Artifacts(jobId, plan, baseDir);
+  const artifacts = saveTemplate1Artifacts(jobId, plan, slotTableJson, baseDir);
 
   const job = {
     jobId,
@@ -277,6 +363,7 @@ export function runTemplate1SlotPromptChain(args, baseDir) {
     startedAt,
     completedAt: nowIso(),
     template1Plan: plan,
+    slotTableJson,
     artifacts
   };
 
