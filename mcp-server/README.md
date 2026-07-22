@@ -32,6 +32,7 @@ Server endpoint:
 
 ```text
 http://127.0.0.1:3001/mcp
+http://127.0.0.1:3001/mcp-template1
 ```
 
 ## MCP client config (HTTP)
@@ -41,6 +42,9 @@ http://127.0.0.1:3001/mcp
   "mcpServers": {
     "creative-team": {
       "url": "http://127.0.0.1:3001/mcp"
+    },
+    "creative-team-template1": {
+      "url": "http://127.0.0.1:3001/mcp-template1"
     }
   }
 }

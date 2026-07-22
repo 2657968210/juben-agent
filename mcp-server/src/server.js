@@ -406,6 +406,7 @@ async function createSessionEntry() {
 
 const host = process.env.MCP_HOST ?? "0.0.0.0";
 const port = Number(process.env.MCP_PORT ?? process.env.PORT ?? 3001);
+const mcpPaths = new Set(["/mcp", "/mcp-template1"]);
 
 const httpServer = http.createServer(async (req, res) => {
   try {
@@ -420,7 +421,7 @@ const httpServer = http.createServer(async (req, res) => {
       return;
     }
 
-    if (requestPath !== "/mcp") {
+    if (!mcpPaths.has(requestPath)) {
       jsonResponse(res, 404, { error: "Not found" });
       return;
     }
@@ -490,7 +491,7 @@ const httpServer = http.createServer(async (req, res) => {
 });
 
 httpServer.listen(port, host, () => {
-  console.log(`creative-team-mcp listening on http://${host}:${port}/mcp`);
+  console.log(`creative-team-mcp listening on http://${host}:${port}/mcp and http://${host}:${port}/mcp-template1`);
 });
 
 async function closeAllSessions() {
