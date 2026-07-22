@@ -1,0 +1,47 @@
+{
+  "name": "full-work-finalization",
+  "package": "creative-team",
+  "description": "全书/全片终检链：全书一致性审校→全书对白审查→修复→复审→品质定级→交付物整理。所有章节/镜头完成后强制运行，不可跳过。",
+  "chain": [
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "全书一致性审校",
+      "label": "全书跨章节一致性审查",
+      "task": "对完整作品进行跨章节/跨场景的一致性审查。\n\n当前模式：{mode}\n\n【前置条件】所有章节/镜头/页面已完成创作并经 stage-production chain 质检通过。\n\n审查要求：\n1. 【空间逻辑】人物移动路线是否合理，物理位置在章节之间是否一致\n2. 【时间逻辑】列出完整时间线，检查各章节时间节点是否对得上\n3. 【行为逻辑】人物在后续章节的行为是否由前情驱动，因果链条是否完整\n4. 【心理逻辑】对照人物小传，检查每个人物心理状态是否按预设弧线线性发展\n5. 【角色一致性】性格、语言风格是否前后一致\n6. 【伏笔回收】所有伏笔是否已揭示，无遗漏\n7. 【设定一致性】世界观规则是否在全篇被一致遵循\n8. 【文字冲突】同一事物在不同章节的描述是否矛盾（颜色/位置/衣着等细节）\n\n输出全书审校报告到 reports/full-review.md",
+      "output": "reports/full-review.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-script-expert",
+      "phase": "全书对白审查",
+      "label": "全书对白/角色/逻辑审查",
+      "task": "对完整作品进行全景式的对白、角色一致性和逻辑审查。\n\n当前模式：{mode}\n\n审查要求：\n1. 检查是否有跨章节的角色性格漂移\n2. 检查是否有跨章节的逻辑矛盾（A章说的事与B章矛盾）\n3. 检查角色声音在全书中是否稳定一致\n4. 检查是否有"后设设定"与早期章节的冲突\n5. 从观众完整阅读全书的视角评估整体体验\n6. 检查所有人物小传中的「心理弧线」是否按预设路径完成\n\n输出全书剧本审查报告到 reports/full-script-review.md",
+      "output": "reports/full-script-review.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-writer",
+      "phase": "全书修复",
+      "label": "根据审校意见修复",
+      "task": "根据全书审校报告和全书剧本审查报告，修复跨章节问题。\n\n当前模式：{mode}\n参考报告：\n- reports/full-review.md（editor全书一致性审查）\n- reports/full-script-review.md（script-expert全书对白审查）\n\n修改要求：\n- 修复所有 S/A 级问题\n- 跨章节修改时注意保持前后衔接自然\n- 如修改涉及已确认的设定/大纲，先更新相应文档\n- 输出修复报告到 reports/full-revision.md",
+      "output": "reports/full-revision.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "全书复审",
+      "label": "全书修复后复审",
+      "task": "对修复后的完整作品进行复审。\n\n当前模式：{mode}\n\n审查要求：\n1. 验证 S/A 级问题是否已修复\n2. 检查修复是否引入新的跨章节矛盾\n3. 确认全书一致性达到可交付标准\n4. 输出复审报告到 reports/full-re-review.md",
+      "output": "reports/full-re-review.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-quality-inspector",
+      "phase": "最终品质定级",
+      "label": "最终品质定级与发布建议",
+      "task": "对完整作品进行最终全面质量评估，给出品质定级和发布建议。\n\n当前模式：{mode}\n\n输入参考：\n- 完整作品（所有章节/镜头/页面）\n- reports/full-review.md（全书一致性审查）\n- reports/full-script-review.md（全书对白审查）\n- reports/full-revision.md（修复记录）\n- reports/full-re-review.md（复审报告）\n- docs/creative-bible.md\n- 所有历史 quality-assessment 报告\n\n评估要求：\n1. 整体叙事评估（完整度、吸引力、结局满意度）\n2. 角色完成度（主角弧光、配角存在感、反派说服力）\n3. 伏笔回收检查（无遗漏）\n4. 受众体验评估（理解难度、情感共鸣、重读价值）\n5. 品质定级（S/A/B/C级）\n6. 发布建议（直接发布 / 修复后发布 / 需重新评估）\n7. 遗留问题清单\n\n输出最终质量评估报告到 reports/final-quality-report.md",
+      "output": "reports/final-quality-report.md",
+      "progress": true
+    }
+  ]
+}

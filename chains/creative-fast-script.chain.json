@@ -1,0 +1,31 @@
+{
+  "name": "fast-script",
+  "package": "creative-team",
+  "description": "数据库结果转短片剧本极速版：3步出稿，跳过视觉生产与多级质检。适用于快速生成1-3分钟短片剧本初稿。",
+  "chain": [
+    {
+      "agent": "creative-team.creative-director",
+      "phase": "方向设定",
+      "label": "短片核心设定与分镜框架",
+      "task": "基于外部数据库提供的结构化分析结果（人物/场景/动作/氛围/风格参考）输出短片创意方向、情绪曲线和分镜框架。\n\n要求：\n1. 明确片长（默认1分钟，可按用户指定）\n2. 明确三段式结构（开场/发展/收束）\n3. 输出镜号级别的分镜骨架\n4. 保持与数据库素材含义一致，不跑题\n5. 输出到 reports/fast-script-director-brief.md",
+      "output": "reports/fast-script-director-brief.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-scriptwriter",
+      "phase": "剧本成稿",
+      "label": "完整分镜剧本",
+      "task": "基于创意总监简报和外部数据库结构化结果，输出完整短片剧本（含分镜、画面描述、对白、时长）。\n\n要求：\n1. 输出标准分镜格式：镜号/景别/画面/动作/对白/时长/情绪\n2. 控制总时长与用户要求一致（默认1分钟）\n3. 对白自然，避免解释性台词\n4. 输出到 docs/shot-list.md 和 reports/fast-script-draft-report.md",
+      "output": "reports/fast-script-draft-report.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-script-expert",
+      "phase": "一次质检",
+      "label": "对白逻辑审查并同步优化",
+      "task": "对短片剧本执行一次性剧本审查并同步优化成终稿。\n\n要求：\n1. 检查角色-对白一致性与逻辑闭环\n2. 检查观众第一遍可理解性\n3. 修复S/A级问题并直接给出优化后终稿\n4. 输出审查报告到 reports/fast-script-review.md\n5. 输出优化后终稿到 docs/shot-list-final.md",
+      "output": "reports/fast-script-review.md",
+      "progress": true
+    }
+  ]
+}

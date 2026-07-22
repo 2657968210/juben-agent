@@ -1,0 +1,230 @@
+﻿{
+    "timestamp":  "2026-07-10T16:07:22",
+    "endpoint":  "http://127.0.0.1:3001/mcp",
+    "sessionId":  "175791b7-eb87-4c4a-abde-7d798e8d8431",
+    "randomImageRecognitionSample":  {
+                                         "assetId":  "img-62820",
+                                         "batchId":  "batch-372",
+                                         "characters":  "两名旧友重逢",
+                                         "scene":  "清晨菜市场人群拥挤",
+                                         "actions":  "把钥匙丢进排水沟后沉默",
+                                         "mood":  "克制",
+                                         "styleRef":  "新黑色写实",
+                                         "targetDurationSec":  60
+                                     },
+    "requests":  {
+                     "initialize":  {
+                                        "jsonrpc":  "2.0",
+                                        "id":  1,
+                                        "method":  "initialize",
+                                        "params":  {
+                                                       "protocolVersion":  "2025-03-26",
+                                                       "capabilities":  {
+
+                                                                        },
+                                                       "clientInfo":  {
+                                                                          "name":  "mcp-http-test",
+                                                                          "version":  "1.0.0"
+                                                                      }
+                                                   }
+                                    },
+                     "run_fast_script_chain":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  2,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "run_fast_script_chain",
+                                                                  "arguments":  {
+                                                                                    "dbResult":  {
+                                                                                                     "assetId":  "img-62820",
+                                                                                                     "batchId":  "batch-372",
+                                                                                                     "characters":  "两名旧友重逢",
+                                                                                                     "scene":  "清晨菜市场人群拥挤",
+                                                                                                     "actions":  "把钥匙丢进排水沟后沉默",
+                                                                                                     "mood":  "克制",
+                                                                                                     "styleRef":  "新黑色写实",
+                                                                                                     "targetDurationSec":  60
+                                                                                                 }
+                                                                                }
+                                                              }
+                                               },
+                     "get_generation_status":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  3,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "get_generation_status",
+                                                                  "arguments":  {
+                                                                                    "jobId":  "216ebf9d-bcc2-4ef6-98db-c42a4a4d573b"
+                                                                                }
+                                                              }
+                                               }
+                 },
+    "responses":  {
+                      "initialize":  {
+                                         "result":  {
+                                                        "protocolVersion":  "2025-03-26",
+                                                        "capabilities":  {
+                                                                             "tools":  {
+
+                                                                                       }
+                                                                         },
+                                                        "serverInfo":  {
+                                                                           "name":  "creative-team-mcp",
+                                                                           "version":  "1.0.0"
+                                                                       }
+                                                    },
+                                         "jsonrpc":  "2.0",
+                                         "id":  1
+                                     },
+                      "run_fast_script_chain":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"jobId\": \"216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\",\n  \"profile\": \"fast-script\",\n  \"status\": \"completed\",\n  \"startedAt\": \"2026-07-10T08:07:21.988Z\",\n  \"completedAt\": \"2026-07-10T08:07:21.988Z\",\n  \"dbResult\": {\n    \"assetId\": \"img-62820\",\n    \"batchId\": \"batch-372\",\n    \"characters\": \"??????\",\n    \"scene\": \"?????????\",\n    \"actions\": \"???????????\",\n    \"mood\": \"??\",\n    \"styleRef\": \"?????\",\n    \"targetDurationSec\": 60\n  },\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\status.json\"\n  },\n  \"shotList\": {\n    \"profile\": \"fast-script\",\n    \"targetDurationSec\": 60,\n    \"shotCount\": 8,\n    \"shots\": [\n      {\n        \"shotNo\": 1,\n        \"shotType\": \"å\u0085¨æ¯\",\n        \"visual\": \"å»ºç«åºæ¯ï¼?????????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 2,\n        \"shotType\": \"ä¸­æ¯\",\n        \"visual\": \"è§è²å\u0085³ç³»åç°ï¼??????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 3,\n        \"shotType\": \"è¿æ¯\",\n        \"visual\": \"å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 4,\n        \"shotType\": \"ä¸­æ¯\",\n        \"visual\": \"å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 5,\n        \"shotType\": \"å\u0085¨æ¯\",\n        \"visual\": \"å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 6,\n        \"shotType\": \"è¿æ¯\",\n        \"visual\": \"å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 7,\n        \"shotType\": \"å\u0085¨æ¯\",\n        \"visual\": \"æ\u0085ç»ªæ¶æï¼??ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      },\n      {\n        \"shotNo\": 8,\n        \"shotType\": \"ä¸­æ¯\",\n        \"visual\": \"æ\u0085ç»ªæ¶æï¼??ï¼é£æ ¼åèï¼?????\",\n        \"action\": \"???????????\",\n        \"dialogue\": \"ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼\",\n        \"durationSec\": 7,\n        \"mood\": \"??\"\n      }\n    ]\n  }\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  2
+                                                },
+                      "get_generation_status":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"found\": true,\n  \"jobId\": \"216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\",\n  \"status\": \"completed\",\n  \"profile\": \"fast-script\",\n  \"startedAt\": \"2026-07-10T08:07:21.988Z\",\n  \"completedAt\": \"2026-07-10T08:07:21.988Z\",\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\ITææ¯é¨\\\\juben-agent\\\\output\\\\jobs\\\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\\\status.json\"\n  }\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  3
+                                                },
+                      "parsedJob":  {
+                                        "jobId":  "216ebf9d-bcc2-4ef6-98db-c42a4a4d573b",
+                                        "profile":  "fast-script",
+                                        "status":  "completed",
+                                        "startedAt":  "2026-07-10T08:07:21.988Z",
+                                        "completedAt":  "2026-07-10T08:07:21.988Z",
+                                        "dbResult":  {
+                                                         "assetId":  "img-62820",
+                                                         "batchId":  "batch-372",
+                                                         "characters":  "??????",
+                                                         "scene":  "?????????",
+                                                         "actions":  "???????????",
+                                                         "mood":  "??",
+                                                         "styleRef":  "?????",
+                                                         "targetDurationSec":  60
+                                                     },
+                                        "artifacts":  {
+                                                          "shotlistPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\shot-list-final.md",
+                                                          "reviewPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\script-review.md",
+                                                          "statusPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\status.json"
+                                                      },
+                                        "shotList":  {
+                                                         "profile":  "fast-script",
+                                                         "targetDurationSec":  60,
+                                                         "shotCount":  8,
+                                                         "shots":  [
+                                                                       {
+                                                                           "shotNo":  1,
+                                                                           "shotType":  "å\u0085¨æ¯",
+                                                                           "visual":  "å»ºç«åºæ¯ï¼?????????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  2,
+                                                                           "shotType":  "ä¸­æ¯",
+                                                                           "visual":  "è§è²å\u0085³ç³»åç°ï¼??????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  3,
+                                                                           "shotType":  "è¿æ¯",
+                                                                           "visual":  "å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  4,
+                                                                           "shotType":  "ä¸­æ¯",
+                                                                           "visual":  "å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  5,
+                                                                           "shotType":  "å\u0085¨æ¯",
+                                                                           "visual":  "å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  6,
+                                                                           "shotType":  "è¿æ¯",
+                                                                           "visual":  "å\u0085³é®å¨ä½æ¨è¿ï¼???????????ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  7,
+                                                                           "shotType":  "å\u0085¨æ¯",
+                                                                           "visual":  "æ\u0085ç»ªæ¶æï¼??ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ç®ç­å¯¹ç½ï¼é¿å\u0085è§£éæ§å°è¯ã",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  8,
+                                                                           "shotType":  "ä¸­æ¯",
+                                                                           "visual":  "æ\u0085ç»ªæ¶æï¼??ï¼é£æ ¼åèï¼?????",
+                                                                           "action":  "???????????",
+                                                                           "dialogue":  "ï¼æ å¯¹ç½ï¼ä»¥ç»é¢åäºï¼",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "??"
+                                                                       }
+                                                                   ]
+                                                     }
+                                    },
+                      "parsedStatus":  {
+                                           "found":  true,
+                                           "jobId":  "216ebf9d-bcc2-4ef6-98db-c42a4a4d573b",
+                                           "status":  "completed",
+                                           "profile":  "fast-script",
+                                           "startedAt":  "2026-07-10T08:07:21.988Z",
+                                           "completedAt":  "2026-07-10T08:07:21.988Z",
+                                           "artifacts":  {
+                                                             "shotlistPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\shot-list-final.md",
+                                                             "reviewPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\script-review.md",
+                                                             "statusPath":  "D:\\ITææ¯é¨\\juben-agent\\output\\jobs\\216ebf9d-bcc2-4ef6-98db-c42a4a4d573b\\status.json"
+                                                         }
+                                       }
+                  },
+    "assertions":  {
+                       "initializeStatusCode":  200,
+                       "toolStatusCode":  200,
+                       "statusStatusCode":  200,
+                       "jobIdPresent":  true,
+                       "statusCompleted":  true,
+                       "jobDirExists":  true,
+                       "shotlistExists":  true,
+                       "reviewExists":  true,
+                       "statusFileExists":  true
+                   }
+}

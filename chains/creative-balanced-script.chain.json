@@ -1,0 +1,47 @@
+{
+  "name": "balanced-script",
+  "package": "creative-team",
+  "description": "数据库结果转短片剧本平衡版：5步完成设定、成稿与终审，兼顾速度和可用质量。",
+  "chain": [
+    {
+      "agent": "creative-team.creative-director",
+      "phase": "方向设定",
+      "label": "创意方向与故事大纲",
+      "task": "基于外部数据库结构化结果确定短片主题、三段式故事走向和镜头节奏。输出到 reports/balanced-director-brief.md",
+      "output": "reports/balanced-director-brief.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-worldbuilder",
+      "phase": "设定补全",
+      "label": "场景视觉设定与人物小传",
+      "task": "基于导演简报补全短片所需的最小设定：场景氛围、角色关系、对白特征。输出到 docs/worldbuilding.md、docs/characters.md，并生成 reports/balanced-worldbuilding-report.md",
+      "output": "reports/balanced-worldbuilding-report.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-scriptwriter",
+      "phase": "剧本成稿",
+      "label": "完整分镜剧本",
+      "task": "基于前两步产出生成完整分镜剧本（镜号/画面/动作/对白/时长）。输出到 docs/shot-list.md 和 reports/balanced-script-draft-report.md",
+      "output": "reports/balanced-script-draft-report.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-script-expert",
+      "phase": "剧本审查",
+      "label": "对白与逻辑审查 + 同步修改",
+      "task": "审查并修复分镜剧本中的对白、角色和逻辑问题，关闭S/A级问题。输出到 reports/balanced-script-review.md，并更新 docs/shot-list-final.md",
+      "output": "reports/balanced-script-review.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "终审",
+      "label": "最终一致性审校",
+      "task": "对优化后短片剧本执行最终一致性审校（设定一致、节奏连贯、时长匹配），输出 reports/balanced-final-review.md 和交付建议。",
+      "output": "reports/balanced-final-review.md",
+      "progress": true
+    }
+  ]
+}

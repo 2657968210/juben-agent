@@ -1,0 +1,71 @@
+{
+  "name": "stage-production",
+  "package": "creative-team",
+  "description": "单阶段自动化创作链：创作→一审→剧本审查→修改→二审→修改→终审→品质评估。每阶段产出必经完整质检闭环，不再依赖主agent自觉调用。根据当前创作模式（novel/film/comic）自动调整审查重点。",
+  "chain": [
+    {
+      "agent": "creative-team.creative-writer",
+      "phase": "创作",
+      "label": "内容创作",
+      "task": "根据已确认的故事大纲和设定，创作当前阶段的内容。\n\n当前模式：{mode}\n当前阶段范围：见 docs/story-outline.md 或 docs/shot-list.md 或 docs/comic-script.md 中标记为当前阶段的部分。\n\n创作要求：\n1. 严格遵循已确认的设定文档（docs/worldbuilding.md, docs/characters.md）\n2. 按大纲推进剧情，不随意改变核心走向\n3. 注意与前序内容的衔接\n4. 输出内容到对应目录（小说→chapters/，漫画→assets/pages/）\n5. 输出创作报告到 reports/creation-report.md\n\n【模式适配】\n- novel模式：写小说章节文本\n- film/comic模式：根据分镜脚本生成视觉画面（此时你的角色等同于 Producer）",
+      "output": "reports/creation-report.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "审查-第一轮",
+      "label": "第一轮审查（一致性）",
+      "task": "对当前阶段创作的内容进行第一轮审查。\n\n当前模式：{mode}\n审查范围：当前阶段产出的内容\n\n审查要求：\n1. 设定一致性检查（对照 docs/worldbuilding.md, docs/characters.md）\n2. 大纲符合度检查（对照 docs/story-outline.md）\n3. 质量评估（文字品质/画面品质）\n4. 连贯性检查（与前序内容的衔接）\n5. 按 S/A/B/C 分级记录问题\n6. 输出审查报告到 reports/review-round-1.md\n\n【注意】此轮只做一致性审查，不负责对话/角色性格审查（那是下一步 script-expert 的职责）。",
+      "output": "reports/review-round-1.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-script-expert",
+      "phase": "审查-剧本",
+      "label": "剧本专家审查（对白+逻辑）",
+      "task": "对当前阶段创作的内容进行剧本专家审查，从观众视角检查对白和逻辑。\n\n当前模式：{mode}\n\n审查要求：\n1. 角色-对白一致性（对照 docs/character-profiles/*.md 人物小传）\n2. 逻辑自洽（角色言行是否基于其知情范围，无逻辑硬伤）\n3. 角色声音差异化（遮住角色名能否判断谁在说话）\n4. 观众第一遍体验（信息释放是否自然，有无为解释而说的对话）\n5. 媒介适配（影视对话是否太书面、漫画对话是否适合气泡等）\n6. 按 S/A/B/C 分级记录问题\n7. 输出审查报告到 reports/script-review-round-1.md\n\n【重要】你是观众在团队中的代言人。如果觉得"哪里不对"但说不清，也要指出来。",
+      "output": "reports/script-review-round-1.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-writer",
+      "phase": "修改-第一轮",
+      "label": "整合修改",
+      "task": "根据第一轮审查报告（editor）和剧本专家审查报告（script-expert）修改内容。\n\n当前模式：{mode}\n审查报告参考：\n- reports/review-round-1.md（editor一致性审查）\n- reports/script-review-round-1.md（script-expert对白/逻辑审查）\n\n修改要求：\n- 优先修复 S级（致命）问题（来自两份报告）\n- 修复 A级（严重）问题\n- 酌情修复 B级（一般）问题\n- 确保修改不引入新问题\n- 输出修改报告到 reports/revision-round-1.md",
+      "output": "reports/revision-round-1.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "审查-第二轮",
+      "label": "第二轮审查（一致性）",
+      "task": "对修改后的内容进行第二轮审查。\n\n当前模式：{mode}\n\n审查要求：\n1. 验证 S/A 级问题（来自 editor 报告）是否已修复\n2. 检查修改是否引入新问题\n3. 重新评估整体质量\n4. 输出审查报告到 reports/review-round-2.md",
+      "output": "reports/review-round-2.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-writer",
+      "phase": "修改-第二轮",
+      "label": "最终修改",
+      "task": "根据第二轮审查报告和剧本专家报告进行最终修改。\n\n当前模式：{mode}\n审查报告参考：\n- reports/review-round-2.md（editor二轮审查）\n- reports/script-review-round-1.md（script-expert仍存的问题）\n\n修改要求：\n- 修复剩余的 A/B 级问题\n- 进行文字/画面润色\n- 输出修改报告到 reports/revision-round-2.md",
+      "output": "reports/revision-round-2.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-editor",
+      "phase": "审查-终审",
+      "label": "最终审查（一致性）",
+      "task": "对当前阶段内容进行最终审查。\n\n当前模式：{mode}\n\n审查要求：\n1. 确认所有 S/A 级问题已修复\n2. 最终质量评估（设定一致性、连贯性）\n3. 检查 script-expert 的 S/A 级问题是否已被 writer 修复\n4. 给出是否建议通过的结论\n5. 输出终审报告到 reports/review-final.md",
+      "output": "reports/review-final.md",
+      "progress": true
+    },
+    {
+      "agent": "creative-team.creative-quality-inspector",
+      "phase": "品质评估",
+      "label": "阶段品质定级",
+      "task": "对当前阶段完成的内容进行全面品质评估。\n\n当前模式：{mode}\n\n输入参考：\n- 当前阶段产出内容\n- reports/review-round-1.md（editor一审）\n- reports/script-review-round-1.md（script-expert审查）\n- reports/review-round-2.md（editor二审）\n- reports/review-final.md（editor终审）\n- docs/creative-bible.md（创意认知基准）\n\n评估要求：\n1. 从受众视角评估整体品质\n2. 检查所有 S/A 级问题是否已关闭\n3. 对当前阶段产出进行品质定级（S/A/B/C级）\n4. 评估发布就绪度\n5. 输出品质评估报告到 reports/quality-assessment-round-1.md",
+      "output": "reports/quality-assessment-round-1.md",
+      "progress": true
+    }
+  ]
+}

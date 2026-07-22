@@ -1,0 +1,288 @@
+﻿{
+    "timestamp":  "2026-07-13T13:04:36",
+    "endpoint":  "http://127.0.0.1:3001/mcp",
+    "sessionId":  "45a90214-0ac1-402e-b08b-deedc8b5102b",
+    "sampleInput":  {
+                        "json":  {
+                                     "dbResult":  {
+                                                      "assetId":  "img-n8n-2048",
+                                                      "batchId":  "batch-901",
+                                                      "characters":  "母亲与失联归来的儿子",
+                                                      "scene":  "雨夜巷口霓虹反光",
+                                                      "actions":  "递交一个牛皮纸信封并后退",
+                                                      "mood":  "压抑",
+                                                      "styleRef":  "黑色电影",
+                                                      "targetDurationSec":  90
+                                                  }
+                                 }
+                    },
+    "requests":  {
+                     "initialize":  {
+                                        "jsonrpc":  "2.0",
+                                        "id":  1,
+                                        "method":  "initialize",
+                                        "params":  {
+                                                       "protocolVersion":  "2025-03-26",
+                                                       "capabilities":  {
+
+                                                                        },
+                                                       "clientInfo":  {
+                                                                          "name":  "n8n-compare",
+                                                                          "version":  "1.0.0"
+                                                                      }
+                                                   }
+                                    },
+                     "validate_input_db_result":  {
+                                                      "jsonrpc":  "2.0",
+                                                      "id":  2,
+                                                      "method":  "tools/call",
+                                                      "params":  {
+                                                                     "name":  "validate_input_db_result",
+                                                                     "arguments":  {
+                                                                                       "json":  {
+                                                                                                    "dbResult":  {
+                                                                                                                     "assetId":  "img-n8n-2048",
+                                                                                                                     "batchId":  "batch-901",
+                                                                                                                     "characters":  "母亲与失联归来的儿子",
+                                                                                                                     "scene":  "雨夜巷口霓虹反光",
+                                                                                                                     "actions":  "递交一个牛皮纸信封并后退",
+                                                                                                                     "mood":  "压抑",
+                                                                                                                     "styleRef":  "黑色电影",
+                                                                                                                     "targetDurationSec":  90
+                                                                                                                 }
+                                                                                                }
+                                                                                   }
+                                                                 }
+                                                  },
+                     "run_fast_script_chain":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  3,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "run_fast_script_chain",
+                                                                  "arguments":  {
+                                                                                    "json":  {
+                                                                                                 "dbResult":  {
+                                                                                                                  "assetId":  "img-n8n-2048",
+                                                                                                                  "batchId":  "batch-901",
+                                                                                                                  "characters":  "母亲与失联归来的儿子",
+                                                                                                                  "scene":  "雨夜巷口霓虹反光",
+                                                                                                                  "actions":  "递交一个牛皮纸信封并后退",
+                                                                                                                  "mood":  "压抑",
+                                                                                                                  "styleRef":  "黑色电影",
+                                                                                                                  "targetDurationSec":  90
+                                                                                                              }
+                                                                                             }
+                                                                                }
+                                                              }
+                                               },
+                     "get_generation_status":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  4,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "get_generation_status",
+                                                                  "arguments":  {
+                                                                                    "jobId":  "2767a9a9-6ccb-493f-aec5-88faeac2821c"
+                                                                                }
+                                                              }
+                                               }
+                 },
+    "responses":  {
+                      "initialize":  {
+                                         "result":  {
+                                                        "protocolVersion":  "2025-03-26",
+                                                        "capabilities":  {
+                                                                             "tools":  {
+
+                                                                                       }
+                                                                         },
+                                                        "serverInfo":  {
+                                                                           "name":  "creative-team-mcp",
+                                                                           "version":  "1.0.0"
+                                                                       }
+                                                    },
+                                         "jsonrpc":  "2.0",
+                                         "id":  1
+                                     },
+                      "validate_input_db_result":  {
+                                                       "result":  {
+                                                                      "content":  [
+                                                                                      {
+                                                                                          "type":  "text",
+                                                                                          "text":  "{\n  \"ok\": true,\n  \"missing\": [],\n  \"requiredFields\": [\n    \"assetId\",\n    \"batchId\",\n    \"characters\",\n    \"scene\",\n    \"actions\",\n    \"mood\",\n    \"styleRef\",\n    \"targetDurationSec\"\n  ],\n  \"normalizedFrom\": \"json.dbResult\"\n}"
+                                                                                      }
+                                                                                  ]
+                                                                  },
+                                                       "jsonrpc":  "2.0",
+                                                       "id":  2
+                                                   },
+                      "run_fast_script_chain":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"jobId\": \"2767a9a9-6ccb-493f-aec5-88faeac2821c\",\n  \"profile\": \"fast-script\",\n  \"status\": \"completed\",\n  \"startedAt\": \"2026-07-13T05:04:36.662Z\",\n  \"completedAt\": \"2026-07-13T05:04:36.663Z\",\n  \"dbResult\": {\n    \"assetId\": \"img-n8n-2048\",\n    \"batchId\": \"batch-901\",\n    \"characters\": \"\\u6bcd\\u4eb2\\u4e0e\\u5931\\u8054\\u5f52\\u6765\\u7684\\u513f\\u5b50\",\n    \"scene\": \"\\u96e8\\u591c\\u5df7\\u53e3\\u9713\\u8679\\u53cd\\u5149\",\n    \"actions\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n    \"mood\": \"\\u538b\\u6291\",\n    \"styleRef\": \"\\u9ed1\\u8272\\u7535\\u5f71\",\n    \"targetDurationSec\": 90\n  },\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\status.json\"\n  },\n  \"shotList\": {\n    \"profile\": \"fast-script\",\n    \"targetDurationSec\": 90,\n    \"shotCount\": 8,\n    \"shots\": [\n      {\n        \"shotNo\": 1,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u5efa\\u7acb\\u573a\\u666f\\uff1a\\u96e8\\u591c\\u5df7\\u53e3\\u9713\\u8679\\u53cd\\u5149\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 2,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u89d2\\u8272\\u5173\\u7cfb\\u5448\\u73b0\\uff1a\\u6bcd\\u4eb2\\u4e0e\\u5931\\u8054\\u5f52\\u6765\\u7684\\u513f\\u5b50\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 3,\n        \"shotType\": \"\\u8fd1\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 4,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 5,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 6,\n        \"shotType\": \"\\u8fd1\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 7,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u60c5\\u7eea\\u6536\\u675f\\uff1a\\u538b\\u6291\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      },\n      {\n        \"shotNo\": 8,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u60c5\\u7eea\\u6536\\u675f\\uff1a\\u538b\\u6291\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u9ed1\\u8272\\u7535\\u5f71\",\n        \"action\": \"\\u9012\\u4ea4\\u4e00\\u4e2a\\u725b\\u76ae\\u7eb8\\u4fe1\\u5c01\\u5e76\\u540e\\u9000\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 11,\n        \"mood\": \"\\u538b\\u6291\"\n      }\n    ]\n  },\n  \"normalizedFrom\": \"json.dbResult\"\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  3
+                                                },
+                      "get_generation_status":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"found\": true,\n  \"jobId\": \"2767a9a9-6ccb-493f-aec5-88faeac2821c\",\n  \"status\": \"completed\",\n  \"profile\": \"fast-script\",\n  \"startedAt\": \"2026-07-13T05:04:36.662Z\",\n  \"completedAt\": \"2026-07-13T05:04:36.663Z\",\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\\\status.json\"\n  }\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  4
+                                                },
+                      "validateParsed":  {
+                                             "ok":  true,
+                                             "missing":  [
+
+                                                         ],
+                                             "requiredFields":  [
+                                                                    "assetId",
+                                                                    "batchId",
+                                                                    "characters",
+                                                                    "scene",
+                                                                    "actions",
+                                                                    "mood",
+                                                                    "styleRef",
+                                                                    "targetDurationSec"
+                                                                ],
+                                             "normalizedFrom":  "json.dbResult"
+                                         },
+                      "runParsed":  {
+                                        "jobId":  "2767a9a9-6ccb-493f-aec5-88faeac2821c",
+                                        "profile":  "fast-script",
+                                        "status":  "completed",
+                                        "startedAt":  "2026-07-13T05:04:36.662Z",
+                                        "completedAt":  "2026-07-13T05:04:36.663Z",
+                                        "dbResult":  {
+                                                         "assetId":  "img-n8n-2048",
+                                                         "batchId":  "batch-901",
+                                                         "characters":  "母亲与失联归来的儿子",
+                                                         "scene":  "雨夜巷口霓虹反光",
+                                                         "actions":  "递交一个牛皮纸信封并后退",
+                                                         "mood":  "压抑",
+                                                         "styleRef":  "黑色电影",
+                                                         "targetDurationSec":  90
+                                                     },
+                                        "artifacts":  {
+                                                          "shotlistPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\shot-list-final.md",
+                                                          "reviewPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\script-review.md",
+                                                          "statusPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\status.json"
+                                                      },
+                                        "shotList":  {
+                                                         "profile":  "fast-script",
+                                                         "targetDurationSec":  90,
+                                                         "shotCount":  8,
+                                                         "shots":  [
+                                                                       {
+                                                                           "shotNo":  1,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "建立场景：雨夜巷口霓虹反光；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  2,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "角色关系呈现：母亲与失联归来的儿子；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  3,
+                                                                           "shotType":  "近景",
+                                                                           "visual":  "关键动作推进：递交一个牛皮纸信封并后退；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  4,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "关键动作推进：递交一个牛皮纸信封并后退；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  5,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "关键动作推进：递交一个牛皮纸信封并后退；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  6,
+                                                                           "shotType":  "近景",
+                                                                           "visual":  "关键动作推进：递交一个牛皮纸信封并后退；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  7,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "情绪收束：压抑；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  8,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "情绪收束：压抑；风格参考：黑色电影",
+                                                                           "action":  "递交一个牛皮纸信封并后退",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  11,
+                                                                           "mood":  "压抑"
+                                                                       }
+                                                                   ]
+                                                     },
+                                        "normalizedFrom":  "json.dbResult"
+                                    },
+                      "statusParsed":  {
+                                           "found":  true,
+                                           "jobId":  "2767a9a9-6ccb-493f-aec5-88faeac2821c",
+                                           "status":  "completed",
+                                           "profile":  "fast-script",
+                                           "startedAt":  "2026-07-13T05:04:36.662Z",
+                                           "completedAt":  "2026-07-13T05:04:36.663Z",
+                                           "artifacts":  {
+                                                             "shotlistPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\shot-list-final.md",
+                                                             "reviewPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\script-review.md",
+                                                             "statusPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\2767a9a9-6ccb-493f-aec5-88faeac2821c\\status.json"
+                                                         }
+                                       }
+                  },
+    "assertions":  {
+                       "init200":  true,
+                       "validate200":  true,
+                       "run200":  true,
+                       "status200":  true,
+                       "validateOk":  true,
+                       "normalizedFrom":  "json.dbResult",
+                       "runStatus":  "completed",
+                       "statusCompleted":  true,
+                       "shotlistExists":  true
+                   }
+}

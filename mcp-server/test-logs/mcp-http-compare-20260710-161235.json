@@ -1,0 +1,239 @@
+﻿{
+    "timestamp":  "2026-07-10T16:12:35",
+    "endpoint":  "http://127.0.0.1:3001/mcp",
+    "sessionId":  "74c03fae-ec16-43c1-aeae-ff949b653835",
+    "randomImageRecognitionSample":  {
+                                         "assetId":  "img-47480",
+                                         "batchId":  "batch-799",
+                                         "characters":  "记者与线人",
+                                         "scene":  "天台边缘风很大",
+                                         "actions":  "打开手电照向角落发现线索",
+                                         "mood":  "冷静",
+                                         "styleRef":  "新黑色写实",
+                                         "targetDurationSec":  60
+                                     },
+    "requests":  {
+                     "initialize":  {
+                                        "jsonrpc":  "2.0",
+                                        "id":  1,
+                                        "method":  "initialize",
+                                        "params":  {
+                                                       "protocolVersion":  "2025-03-26",
+                                                       "capabilities":  {
+
+                                                                        },
+                                                       "clientInfo":  {
+                                                                          "name":  "mcp-http-compare",
+                                                                          "version":  "1.0.0"
+                                                                      }
+                                                   }
+                                    },
+                     "run_fast_script_chain":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  2,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "run_fast_script_chain",
+                                                                  "arguments":  {
+                                                                                    "dbResult":  {
+                                                                                                     "assetId":  "img-47480",
+                                                                                                     "batchId":  "batch-799",
+                                                                                                     "characters":  "记者与线人",
+                                                                                                     "scene":  "天台边缘风很大",
+                                                                                                     "actions":  "打开手电照向角落发现线索",
+                                                                                                     "mood":  "冷静",
+                                                                                                     "styleRef":  "新黑色写实",
+                                                                                                     "targetDurationSec":  60
+                                                                                                 }
+                                                                                }
+                                                              }
+                                               },
+                     "get_generation_status":  {
+                                                   "jsonrpc":  "2.0",
+                                                   "id":  3,
+                                                   "method":  "tools/call",
+                                                   "params":  {
+                                                                  "name":  "get_generation_status",
+                                                                  "arguments":  {
+                                                                                    "jobId":  "f7cd2129-7ab1-430d-9164-9d5ac6a674a4"
+                                                                                }
+                                                              }
+                                               }
+                 },
+    "responses":  {
+                      "initialize":  {
+                                         "result":  {
+                                                        "protocolVersion":  "2025-03-26",
+                                                        "capabilities":  {
+                                                                             "tools":  {
+
+                                                                                       }
+                                                                         },
+                                                        "serverInfo":  {
+                                                                           "name":  "creative-team-mcp",
+                                                                           "version":  "1.0.0"
+                                                                       }
+                                                    },
+                                         "jsonrpc":  "2.0",
+                                         "id":  1
+                                     },
+                      "run_fast_script_chain":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"jobId\": \"f7cd2129-7ab1-430d-9164-9d5ac6a674a4\",\n  \"profile\": \"fast-script\",\n  \"status\": \"completed\",\n  \"startedAt\": \"2026-07-10T08:12:35.857Z\",\n  \"completedAt\": \"2026-07-10T08:12:35.858Z\",\n  \"dbResult\": {\n    \"assetId\": \"img-47480\",\n    \"batchId\": \"batch-799\",\n    \"characters\": \"\\u8bb0\\u8005\\u4e0e\\u7ebf\\u4eba\",\n    \"scene\": \"\\u5929\\u53f0\\u8fb9\\u7f18\\u98ce\\u5f88\\u5927\",\n    \"actions\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n    \"mood\": \"\\u51b7\\u9759\",\n    \"styleRef\": \"\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n    \"targetDurationSec\": 60\n  },\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\status.json\"\n  },\n  \"shotList\": {\n    \"profile\": \"fast-script\",\n    \"targetDurationSec\": 60,\n    \"shotCount\": 8,\n    \"shots\": [\n      {\n        \"shotNo\": 1,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u5efa\\u7acb\\u573a\\u666f\\uff1a\\u5929\\u53f0\\u8fb9\\u7f18\\u98ce\\u5f88\\u5927\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 2,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u89d2\\u8272\\u5173\\u7cfb\\u5448\\u73b0\\uff1a\\u8bb0\\u8005\\u4e0e\\u7ebf\\u4eba\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 3,\n        \"shotType\": \"\\u8fd1\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 4,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 5,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 6,\n        \"shotType\": \"\\u8fd1\\u666f\",\n        \"visual\": \"\\u5173\\u952e\\u52a8\\u4f5c\\u63a8\\u8fdb\\uff1a\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 7,\n        \"shotType\": \"\\u5168\\u666f\",\n        \"visual\": \"\\u60c5\\u7eea\\u6536\\u675f\\uff1a\\u51b7\\u9759\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\u7b80\\u77ed\\u5bf9\\u767d\\uff0c\\u907f\\u514d\\u89e3\\u91ca\\u6027\\u53f0\\u8bcd\\u3002\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      },\n      {\n        \"shotNo\": 8,\n        \"shotType\": \"\\u4e2d\\u666f\",\n        \"visual\": \"\\u60c5\\u7eea\\u6536\\u675f\\uff1a\\u51b7\\u9759\\uff1b\\u98ce\\u683c\\u53c2\\u8003\\uff1a\\u65b0\\u9ed1\\u8272\\u5199\\u5b9e\",\n        \"action\": \"\\u6253\\u5f00\\u624b\\u7535\\u7167\\u5411\\u89d2\\u843d\\u53d1\\u73b0\\u7ebf\\u7d22\",\n        \"dialogue\": \"\\uff08\\u65e0\\u5bf9\\u767d\\uff0c\\u4ee5\\u753b\\u9762\\u53d9\\u4e8b\\uff09\",\n        \"durationSec\": 7,\n        \"mood\": \"\\u51b7\\u9759\"\n      }\n    ]\n  }\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  2
+                                                },
+                      "get_generation_status":  {
+                                                    "result":  {
+                                                                   "content":  [
+                                                                                   {
+                                                                                       "type":  "text",
+                                                                                       "text":  "{\n  \"found\": true,\n  \"jobId\": \"f7cd2129-7ab1-430d-9164-9d5ac6a674a4\",\n  \"status\": \"completed\",\n  \"profile\": \"fast-script\",\n  \"startedAt\": \"2026-07-10T08:12:35.857Z\",\n  \"completedAt\": \"2026-07-10T08:12:35.858Z\",\n  \"artifacts\": {\n    \"shotlistPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\shot-list-final.md\",\n    \"reviewPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\script-review.md\",\n    \"statusPath\": \"D:\\\\IT\\u6280\\u672f\\u90e8\\\\juben-agent\\\\output\\\\jobs\\\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\\\status.json\"\n  }\n}"
+                                                                                   }
+                                                                               ]
+                                                               },
+                                                    "jsonrpc":  "2.0",
+                                                    "id":  3
+                                                },
+                      "parsedJob":  {
+                                        "jobId":  "f7cd2129-7ab1-430d-9164-9d5ac6a674a4",
+                                        "profile":  "fast-script",
+                                        "status":  "completed",
+                                        "startedAt":  "2026-07-10T08:12:35.857Z",
+                                        "completedAt":  "2026-07-10T08:12:35.858Z",
+                                        "dbResult":  {
+                                                         "assetId":  "img-47480",
+                                                         "batchId":  "batch-799",
+                                                         "characters":  "记者与线人",
+                                                         "scene":  "天台边缘风很大",
+                                                         "actions":  "打开手电照向角落发现线索",
+                                                         "mood":  "冷静",
+                                                         "styleRef":  "新黑色写实",
+                                                         "targetDurationSec":  60
+                                                     },
+                                        "artifacts":  {
+                                                          "shotlistPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\shot-list-final.md",
+                                                          "reviewPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\script-review.md",
+                                                          "statusPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\status.json"
+                                                      },
+                                        "shotList":  {
+                                                         "profile":  "fast-script",
+                                                         "targetDurationSec":  60,
+                                                         "shotCount":  8,
+                                                         "shots":  [
+                                                                       {
+                                                                           "shotNo":  1,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "建立场景：天台边缘风很大；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  2,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "角色关系呈现：记者与线人；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  3,
+                                                                           "shotType":  "近景",
+                                                                           "visual":  "关键动作推进：打开手电照向角落发现线索；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  4,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "关键动作推进：打开手电照向角落发现线索；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  5,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "关键动作推进：打开手电照向角落发现线索；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  6,
+                                                                           "shotType":  "近景",
+                                                                           "visual":  "关键动作推进：打开手电照向角落发现线索；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  7,
+                                                                           "shotType":  "全景",
+                                                                           "visual":  "情绪收束：冷静；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "简短对白，避免解释性台词。",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       },
+                                                                       {
+                                                                           "shotNo":  8,
+                                                                           "shotType":  "中景",
+                                                                           "visual":  "情绪收束：冷静；风格参考：新黑色写实",
+                                                                           "action":  "打开手电照向角落发现线索",
+                                                                           "dialogue":  "（无对白，以画面叙事）",
+                                                                           "durationSec":  7,
+                                                                           "mood":  "冷静"
+                                                                       }
+                                                                   ]
+                                                     }
+                                    },
+                      "parsedStatus":  {
+                                           "found":  true,
+                                           "jobId":  "f7cd2129-7ab1-430d-9164-9d5ac6a674a4",
+                                           "status":  "completed",
+                                           "profile":  "fast-script",
+                                           "startedAt":  "2026-07-10T08:12:35.857Z",
+                                           "completedAt":  "2026-07-10T08:12:35.858Z",
+                                           "artifacts":  {
+                                                             "shotlistPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\shot-list-final.md",
+                                                             "reviewPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\script-review.md",
+                                                             "statusPath":  "D:\\IT技术部\\juben-agent\\output\\jobs\\f7cd2129-7ab1-430d-9164-9d5ac6a674a4\\status.json"
+                                                         }
+                                       }
+                  },
+    "encodingChecks":  {
+                           "responseTextContainsQuestionMarks":  false,
+                           "responseTextContainsUnicodeEscapes":  true,
+                           "parsedJobCharacters":  "记者与线人",
+                           "parsedJobScene":  "天台边缘风很大",
+                           "parsedJobActions":  "打开手电照向角落发现线索",
+                           "parsedJobMood":  "冷静",
+                           "parsedJobStyleRef":  "新黑色写实"
+                       },
+    "assertions":  {
+                       "initializeStatusCode":  200,
+                       "toolStatusCode":  200,
+                       "statusStatusCode":  200,
+                       "jobIdPresent":  true,
+                       "statusCompleted":  true,
+                       "jobDirExists":  true,
+                       "shotlistExists":  true,
+                       "reviewExists":  true,
+                       "statusFileExists":  true
+                   }
+}
