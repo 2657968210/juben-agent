@@ -4,7 +4,7 @@
       "url": "http://127.0.0.1:3001/mcp"
     },
     "creative-team-template1": {
-      "url": "http://127.0.0.1:3002/mcp"
+      "url": "http://127.0.0.1:3001/mcp-template1"
     }
   }
 }

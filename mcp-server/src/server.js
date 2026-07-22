@@ -16,6 +16,11 @@ import {
   getGenerationStatus,
   getFinalShotlist
 } from "./engine.js";
+import {
+  TEMPLATE1_ROUTE_PATH,
+  TEMPLATE1_TOOLS,
+  handleTemplate1Tool
+} from "./template1-mcp-route.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -221,10 +226,107 @@ function compactShotlistResult(shotlist) {
   };
 }
 
-function createMcpServer() {
+const CORE_ROUTE_PATH = "/mcp";
+
+const CORE_TOOLS = [
+  {
+    name: "validate_input_db_result",
+    description: "Validate external DB structured analysis result for film-script-only workflow.",
+    inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
+  },
+  {
+    name: "run_fast_script_chain",
+    description: "Run 3-step fast-script chain using external DB result.",
+    inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
+  },
+  {
+    name: "run_balanced_script_chain",
+    description: "Run 5-step balanced-script chain using external DB result.",
+    inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
+  },
+  {
+    name: "get_generation_status",
+    description: "Get generation status by jobId.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        jobId: { type: "string" }
+      },
+      required: ["jobId"]
+    }
+  },
+  {
+    name: "get_final_shotlist",
+    description: "Get final shot list by jobId.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        jobId: { type: "string" }
+      },
+      required: ["jobId"]
+    }
+  }
+];
+
+const ROUTE_DEFINITIONS = {
+  [CORE_ROUTE_PATH]: {
+    serverName: "creative-team-mcp",
+    tools: CORE_TOOLS,
+    handlers: {
+      validate_input_db_result: async (args) => {
+        const normalized = normalizeDbResult(args);
+        const result = validateDbResult(normalized.dbResult);
+        return {
+          content: [{
+            type: "text",
+            text: toUnicodeEscapedJson(compactValidationResult(result, normalized.source))
+          }]
+        };
+      },
+      run_fast_script_chain: async (args) => {
+        const normalized = normalizeDbResult(args);
+        const job = runFastScriptChain(normalized.dbResult, workspaceRoot);
+        return {
+          content: [{ type: "text", text: job?.scriptMarkdown ?? "" }]
+        };
+      },
+      run_balanced_script_chain: async (args) => {
+        const normalized = normalizeDbResult(args);
+        const job = runBalancedScriptChain(normalized.dbResult, workspaceRoot);
+        return {
+          content: [{ type: "text", text: job?.scriptMarkdown ?? "" }]
+        };
+      },
+      get_generation_status: async (args) => {
+        const status = getGenerationStatus(args?.jobId ?? "");
+        return {
+          content: [{ type: "text", text: toUnicodeEscapedJson(compactStatusResult(status)) }]
+        };
+      },
+      get_final_shotlist: async (args) => {
+        const shotlist = getFinalShotlist(args?.jobId ?? "");
+        return {
+          content: [{ type: "text", text: toUnicodeEscapedJson(compactShotlistResult(shotlist)) }]
+        };
+      }
+    }
+  },
+  [TEMPLATE1_ROUTE_PATH]: {
+    serverName: "creative-team-template1-mcp",
+    tools: TEMPLATE1_TOOLS,
+    handlers: {
+      generate_template1_slot_table_json: (args) => handleTemplate1Tool("generate_template1_slot_table_json", args, {
+        workspaceRoot,
+        toUnicodeEscapedJson
+      })
+    }
+  }
+};
+
+function createMcpServer(routeDefinition) {
   const server = new Server(
     {
-      name: "creative-team-mcp",
+      name: routeDefinition.serverName,
       version: "1.0.0"
     },
     {
@@ -234,98 +336,15 @@ function createMcpServer() {
     }
   );
 
-  const tools = [
-    {
-      name: "validate_input_db_result",
-      description: "Validate external DB structured analysis result for film-script-only workflow.",
-      inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
-    },
-    {
-      name: "run_fast_script_chain",
-      description: "Run 3-step fast-script chain using external DB result.",
-      inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
-    },
-    {
-      name: "run_balanced_script_chain",
-      description: "Run 5-step balanced-script chain using external DB result.",
-      inputSchema: IMAGE_ANALYSIS_INPUT_SCHEMA
-    },
-    {
-      name: "get_generation_status",
-      description: "Get generation status by jobId.",
-      inputSchema: {
-        type: "object",
-        properties: {
-          jobId: { type: "string" }
-        },
-        required: ["jobId"]
-      }
-    },
-    {
-      name: "get_final_shotlist",
-      description: "Get final shot list by jobId.",
-      inputSchema: {
-        type: "object",
-        properties: {
-          jobId: { type: "string" }
-        },
-        required: ["jobId"]
-      }
-    }
-  ];
-
   server.setRequestHandler(ListToolsRequestSchema, async () => {
-    return { tools };
+    return { tools: routeDefinition.tools };
   });
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
-
-    if (name === "validate_input_db_result") {
-      const normalized = normalizeDbResult(args);
-      const result = validateDbResult(normalized.dbResult);
-      return {
-        content: [{
-          type: "text",
-          text: toUnicodeEscapedJson(compactValidationResult(result, normalized.source))
-        }]
-      };
-    }
-
-    if (name === "run_fast_script_chain") {
-      const normalized = normalizeDbResult(args);
-      const job = runFastScriptChain(normalized.dbResult, workspaceRoot);
-      return {
-        content: [{
-          type: "text",
-          text: job?.scriptMarkdown ?? ""
-        }]
-      };
-    }
-
-    if (name === "run_balanced_script_chain") {
-      const normalized = normalizeDbResult(args);
-      const job = runBalancedScriptChain(normalized.dbResult, workspaceRoot);
-      return {
-        content: [{
-          type: "text",
-          text: job?.scriptMarkdown ?? ""
-        }]
-      };
-    }
-
-    if (name === "get_generation_status") {
-      const status = getGenerationStatus(args?.jobId ?? "");
-      return {
-        content: [{ type: "text", text: toUnicodeEscapedJson(compactStatusResult(status)) }]
-      };
-    }
-
-    if (name === "get_final_shotlist") {
-      const shotlist = getFinalShotlist(args?.jobId ?? "");
-      return {
-        content: [{ type: "text", text: toUnicodeEscapedJson(compactShotlistResult(shotlist)) }]
-      };
+    const handler = routeDefinition.handlers[name];
+    if (handler) {
+      return handler(args);
     }
 
     throw new Error(`Unknown tool: ${name}`);
@@ -334,7 +353,7 @@ function createMcpServer() {
   return server;
 }
 
-const sessions = new Map();
+const sessionsByPath = new Map(Object.keys(ROUTE_DEFINITIONS).map((routePath) => [routePath, new Map()]));
 
 function jsonResponse(res, statusCode, payload) {
   res.writeHead(statusCode, { "Content-Type": "application/json" });
@@ -377,9 +396,15 @@ function readJsonBody(req) {
   });
 }
 
-async function createSessionEntry() {
+async function createSessionEntry(routePath) {
   let transport;
-  const server = createMcpServer();
+  const routeDefinition = ROUTE_DEFINITIONS[routePath];
+  if (!routeDefinition) {
+    throw new Error(`Unknown MCP route: ${routePath}`);
+  }
+
+  const server = createMcpServer(routeDefinition);
+  const sessions = sessionsByPath.get(routePath);
 
   transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: () => crypto.randomUUID(),
@@ -406,7 +431,6 @@ async function createSessionEntry() {
 
 const host = process.env.MCP_HOST ?? "0.0.0.0";
 const port = Number(process.env.MCP_PORT ?? process.env.PORT ?? 3001);
-const mcpPaths = new Set(["/mcp", "/mcp-template1"]);
 
 const httpServer = http.createServer(async (req, res) => {
   try {
@@ -421,7 +445,8 @@ const httpServer = http.createServer(async (req, res) => {
       return;
     }
 
-    if (!mcpPaths.has(requestPath)) {
+    const routeDefinition = ROUTE_DEFINITIONS[requestPath];
+    if (!routeDefinition) {
       jsonResponse(res, 404, { error: "Not found" });
       return;
     }
@@ -443,12 +468,13 @@ const httpServer = http.createServer(async (req, res) => {
       }
     }
 
+    const sessions = sessionsByPath.get(requestPath);
     const sessionId = getHeaderValue(req, "mcp-session-id");
     let entry = sessionId ? sessions.get(sessionId) : undefined;
 
     if (!entry) {
       if (req.method === "POST" && isInitializePayload(parsedBody)) {
-        entry = await createSessionEntry();
+        entry = await createSessionEntry(requestPath);
       } else if (sessionId) {
         jsonResponse(res, 404, {
           jsonrpc: "2.0",
@@ -495,8 +521,10 @@ httpServer.listen(port, host, () => {
 });
 
 async function closeAllSessions() {
-  const entries = Array.from(sessions.values());
-  sessions.clear();
+  const entries = Array.from(sessionsByPath.values()).flatMap((sessionMap) => Array.from(sessionMap.values()));
+  for (const sessionMap of sessionsByPath.values()) {
+    sessionMap.clear();
+  }
   await Promise.all(entries.map(async (entry) => {
     await entry.transport.close();
   }));
