@@ -1,9 +1,9 @@
 {
   "output": {
     "title": "恋爱十年纪念 分镜槽位表",
-    "prompt": "slots限制长度为13",
+    "prompt": "slots限制长度为12",
     "model_selection": "素材处理：GPT-5.5\n视频模型：Wan2.2",
-    "slots_limit": 13,
+    "slots_limit": 12,
     "requirements": [
       "1、来源文件：恋爱十年纪念.xlsx。",
       "2、图生视频提示词核心为动作（Motion）+氛围/光影变化（Atmosphere/Lighting）+运镜（Camera）。",
@@ -112,14 +112,6 @@
         "时长": "3s",
         "槽位要求（景别+内容+情绪+运镜）": "",
         "适配素材": "lianai_shinian_jinian_12.jpg",
-        "model": "Wan2.2",
-        "图生视频提示词": ""
-      },
-      {
-        "镜头序号": "总时长",
-        "时长": "45s",
-        "槽位要求（景别+内容+情绪+运镜）": "建议统一生成参数：9:16竖版、24fps、单镜头4–5秒；人物镜头优先低运动幅度，首尾各保留约0.3秒稳定画面，后期按“清晨→白昼→黄昏→蓝调→次日→家庭金色时刻”顺序衔接。",
-        "适配素材": "lianai_shinian_jinian_13.jpg",
         "model": "Wan2.2",
         "图生视频提示词": ""
       }
