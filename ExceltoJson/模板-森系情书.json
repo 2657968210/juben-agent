@@ -1,7 +1,7 @@
 {
   "output": {
     "title": "7.22 森系情书 分镜槽位表",
-    "prompt": "限制分镜槽位数量为7",
+    "prompt": "slots限制长度为7",
     "model_selection": "素材处理：GPT-5.5中\n视频生成：kling-2.6",
     "slots_limit": 7,
     "requirements": [
