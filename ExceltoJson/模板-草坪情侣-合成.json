@@ -88,6 +88,17 @@
           "Extra": [
             { "Type": "transform", "PosX": 40, "PosY": 1800, "Width": 1000, "Height": 70 }
           ]
+        },
+        {
+          "Type": "audio",
+          "Source": "vid://v02284g10073d9qq6va7dld7rinsmrhg",
+          "TargetTime": [0, 63840],
+          "Loop": true,
+          "Extra": [
+            { "Type": "trim", "StartTime": 0, "EndTime": 63840 },
+            { "Type": "a_volume", "Volume": 0.3 },
+            { "Type": "a_fade", "FadeIn": 1000, "FadeOut": 2000 }
+          ]
         }
       ]
 
