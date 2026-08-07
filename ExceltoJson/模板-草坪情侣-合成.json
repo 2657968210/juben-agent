@@ -39,10 +39,7 @@
           "Extra": [
             { "Type": "transform", "PosX": 40, "PosY": 1590, "Width": 1000, "Height": 110 }
           ]
-        }
-      ],
-
-      [
+        },
         {
           "Type": "text",
           "Text": "Fairytale",
@@ -79,9 +76,7 @@
           "Extra": [
             { "Type": "transform", "PosX": 40, "PosY": 1710, "Width": 1000, "Height": 80 }
           ]
-        }
-      ],
-      [
+        },
         {
           "Type": "text",
           "Text": "Enjoying yourself on the road",
