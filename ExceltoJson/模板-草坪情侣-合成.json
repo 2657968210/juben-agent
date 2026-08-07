@@ -1,0 +1,101 @@
+{
+  "EditParam": {
+    "Canvas": { "Width": 480, "Height": 854 },
+    "Track": [
+      [
+        {
+          "Type": "text",
+          "Text": "Time stops with you",
+          "TargetTime": [1000, 5000],
+          "FontSize": 72,
+          "FontType": "f00325n7t5nid9q3983c77u83rdqmdrg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1640, "Width": 1000, "Height": 110 },
+            { "Type": "text_animation", "AnimInRes": "1181434", "AnimInDuration": 300, "AnimOutRes": "1181501", "AnimOutDuration": 300 }
+          ]
+        },
+        {
+          "Type": "text",
+          "Text": "Garden",
+          "TargetTime": [8000, 15000],
+          "FontSize": 72,
+          "FontType": "f00325n7t5nid9q3983c77u83rdqmdrg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1640, "Width": 1000, "Height": 110 }
+          ]
+        },
+        {
+          "Type": "text",
+          "Text": "Visual poetry",
+          "TargetTime": [18000, 22000],
+          "FontSize": 72,
+          "FontType": "f00325n7t5nid9q3983c77u83rdqmdrg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1590, "Width": 1000, "Height": 110 }
+          ]
+        }
+      ],
+
+      [
+        {
+          "Type": "text",
+          "Text": "Fairytale",
+          "TargetTime": [1000, 5000],
+          "FontSize": 52,
+          "FontType": "f003270ienxkd9q398rc77u8imrl2tjg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1760, "Width": 1000, "Height": 80 },
+            { "Type": "text_animation", "AnimInRes": "1181434", "AnimInDuration": 300, "AnimOutRes": "1181501", "AnimOutDuration": 300 }
+          ]
+        },
+        {
+          "Type": "text",
+          "Text": "Engagement photoshoot",
+          "TargetTime": [8000, 15000],
+          "FontSize": 52,
+          "FontType": "f003270ienxkd9q398rc77u8imrl2tjg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1760, "Width": 1000, "Height": 80 }
+          ]
+        },
+        {
+          "Type": "text",
+          "Text": "Summer",
+          "TargetTime": [18000, 22000],
+          "FontSize": 52,
+          "FontType": "f003270ienxkd9q398rc77u8imrl2tjg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1710, "Width": 1000, "Height": 80 }
+          ]
+        }
+      ],
+      [
+        {
+          "Type": "text",
+          "Text": "Enjoying yourself on the road",
+          "TargetTime": [18000, 22000],
+          "FontSize": 42,
+          "FontType": "f003270ienxkd9q398rc77u8imrl2tjg",
+          "FontColor": "#FFFFFFFF",
+          "AlignType": 1,
+          "Extra": [
+            { "Type": "transform", "PosX": 40, "PosY": 1800, "Width": 1000, "Height": 70 }
+          ]
+        }
+      ]
+
+    ]
+  }
+}
